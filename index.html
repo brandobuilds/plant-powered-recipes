@@ -89,7 +89,7 @@
   .hero-icon {
     display: inline-flex; align-items: center; justify-content: center;
     width: 72px; height: 72px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+    background: linear-gradient(135deg, #d4e8c2, #b5d1a0);
     font-size: 1.8rem; margin-bottom: 1.5rem;
     box-shadow: 0 4px 20px rgba(138,171,110,0.3);
   }
@@ -158,7 +158,7 @@
     color: var(--olive); flex: 1; line-height: 1.3;
   }
 
-  .summary-protein {
+  .summary-time {
     font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600;
     background: var(--olive); color: white; padding: 0.2rem 0.55rem;
     border-radius: 100px; flex-shrink: 0; white-space: nowrap;
@@ -299,7 +299,7 @@
      HERO + ABOUT
      ════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-icon">🌱</div>
+  <div class="hero-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="18" cy="30" rx="5" ry="3" fill="#8B6914" opacity="0.6"/><rect x="16.5" y="16" width="3" height="15" rx="1.5" fill="#3d5a1e"/><path d="M18 18c-2-6-9-7-12-5 2 5 8 7 12 5z" fill="#5a9e2f"/><path d="M18 14c2-6 9-7 12-5-2 5-8 7-12 5z" fill="#3d5a1e"/></svg></div>
   <h1>Plant Powered<br>Cookbook</h1>
   <hr class="hero-rule">
   <p class="hero-sub">10 Easy &amp; Delicious High-Protein Vegan Recipes</p>
@@ -307,7 +307,7 @@
 </section>
 
 <section class="about-section">
-  <h2>How to Use This Book</h2>
+  <h2>About These Recipes</h2>
   <p>Every recipe uses common grocery store ingredients, takes under 30 minutes, and is nearly impossible to mess up. If you can stir and set a timer, you can make everything in here.</p>
   <div class="intro-grid">
     <div class="intro-card"><div class="ic-emoji">🛒</div><div class="ic-label">Simple Ingredients</div></div>
@@ -329,7 +329,7 @@
   <!-- ── 1. Smoky Black Bean Soup -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">1</span><span class="summary-title">Smoky Black Bean Soup</span><span class="summary-protein">~19g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">1</span><span class="summary-title">Smoky Black Bean Soup</span><span class="summary-time">20 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">A thick, smoky, deeply satisfying soup from two cans of beans and a few spices. Top-tier lazy cooking.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">2 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">18 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~19g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -360,7 +360,7 @@
   <!-- ── 2. Golden Chickpea Tostadas -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">2</span><span class="summary-title">Golden Chickpea Tostadas</span><span class="summary-protein">~17g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">2</span><span class="summary-title">Golden Chickpea Tostadas</span><span class="summary-time">10 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">Crunchy, golden chickpeas piled on crispy tostadas with lime and chili. Five ingredients, zero skill, maximum satisfaction.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">2 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">8 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~17g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -390,7 +390,7 @@
   <!-- ── 3. Creamy Coconut Dal -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">3</span><span class="summary-title">Creamy Coconut Dal</span><span class="summary-protein">~19g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">3</span><span class="summary-title">Creamy Coconut Dal</span><span class="summary-time">17 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">Silky, warming, and aromatic — this one-pot dal is the ultimate comfort food with almost zero active cooking.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">2 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">15 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~19g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -423,7 +423,7 @@
   <!-- ── 4. Crispy Sweet Potato Tacos -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">4</span><span class="summary-title">Crispy Sweet Potato Tacos</span><span class="summary-protein">~18g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">4</span><span class="summary-title">Crispy Sweet Potato Tacos</span><span class="summary-time">20 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">Caramelized sweet potato cubes and seasoned black beans piled into warm tortillas with avocado and salsa. Weeknight perfection.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">15 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~18g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -455,7 +455,7 @@
   <!-- ── 5. Spiced Walnut Burritos -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">5</span><span class="summary-title">Spiced Walnut Burritos</span><span class="summary-protein">~21g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">5</span><span class="summary-title">Spiced Walnut Burritos</span><span class="summary-time">15 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">Smoky, savory bean-walnut filling wrapped in warm tortillas. Nobody will ask where the meat is.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">10 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~21g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -489,7 +489,7 @@
       <summary>
         <span class="summary-num">6</span>
         <span class="summary-title">Salt &amp; Pepper Tofu</span>
-        <span class="summary-protein">~20g</span>
+        <span class="summary-time">15 min</span>
         <span class="summary-arrow">▸</span>
       </summary>
       <div class="recipe-inner">
@@ -534,7 +534,7 @@
   <!-- ── 7. Creamy Peanut Ramen -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">7</span><span class="summary-title">Creamy Peanut Ramen</span><span class="summary-protein">~24g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">7</span><span class="summary-title">Creamy Peanut Ramen</span><span class="summary-time">20 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">A creamy, spicy peanut broth with noodles and crispy tofu. Restaurant-level ramen from pantry staples.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">15 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~24g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -568,7 +568,7 @@
   <!-- ── 8. Rich Lentil Bolognese -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">8</span><span class="summary-title">Rich Lentil Bolognese</span><span class="summary-protein">~22g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">8</span><span class="summary-title">Rich Lentil Bolognese</span><span class="summary-time">30 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">A rich, savory pasta sauce where red lentils melt away into nothing — you'd never know it's vegan. One pot, no chopping.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">25 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~22g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -599,7 +599,7 @@
   <!-- ── 9. Kenji's Chickpea Stew -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">9</span><span class="summary-title">Kenji's Chickpea Stew</span><span class="summary-protein">~18g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">9</span><span class="summary-title">Kenji's Chickpea Stew</span><span class="summary-time">50 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">A Spanish-inspired stew that simmers down into something deeply rich and savory. Low effort, high reward — just let the pot do the work.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">10 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">40 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~18g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -633,7 +633,7 @@
   <!-- ── 10. Chocolate Peanut Mousse -->
   <div class="recipe-wrapper">
     <details class="recipe-details">
-      <summary><span class="summary-num">10</span><span class="summary-title">Chocolate Peanut Mousse</span><span class="summary-protein">~14g</span><span class="summary-arrow">▸</span></summary>
+      <summary><span class="summary-num">10</span><span class="summary-title">Chocolate Peanut Mousse</span><span class="summary-time">5 min</span><span class="summary-arrow">▸</span></summary>
       <div class="recipe-inner">
         <div class="card-desc-bar">A decadent, silky mousse that's secretly packed with protein. Dump everything in a blender, chill, and impress.</div>
         <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min + chill</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">None</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~14g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
@@ -735,10 +735,11 @@
 
 <style>
   .back-tag {
-    display: inline-flex; align-items: center; gap: 0.25rem;
-    margin-left: 0.5rem; padding: 0.2rem 0.6rem;
-    background: var(--olive); color: white; border: none; border-radius: 100px;
-    font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 600;
+    display: inline-flex; align-items: center;
+    margin-left: 0.5rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600;
+    background: var(--olive); color: white; padding: 0.2rem 0.55rem;
+    border: none; border-radius: 100px;
     cursor: pointer; white-space: nowrap; vertical-align: middle;
     -webkit-tap-highlight-color: rgba(0,0,0,0.05);
     min-height: 28px;
