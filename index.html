@@ -750,45 +750,38 @@
 
 <script>
 (function() {
-  var source = null;
-  var sourceName = '';
+  var sourceLink = null;
   var activeTag = null;
 
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href^="#sub-"]');
     if (link) {
-      var recipe = link.closest('.recipe-wrapper');
-      if (recipe) {
-        source = recipe;
-        var title = recipe.querySelector('.summary-title');
-        sourceName = title ? title.textContent : 'recipe';
+      sourceLink = link;
 
-        // Remove any existing back tag
-        if (activeTag) activeTag.remove();
+      // Remove any existing back tag
+      if (activeTag) activeTag.remove();
 
-        // Wait for browser to scroll to target, then inject tag
-        requestAnimationFrame(function() {
-          var targetId = link.getAttribute('href').slice(1);
-          var targetRow = document.getElementById(targetId);
-          if (targetRow) {
-            var firstCell = targetRow.querySelector('td');
-            if (firstCell) {
-              var tag = document.createElement('button');
-              tag.className = 'back-tag';
-              tag.innerHTML = '← ' + sourceName;
-              tag.addEventListener('click', function(ev) {
-                ev.preventDefault();
-                source.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                tag.remove();
-                activeTag = null;
-                source = null;
-              });
-              firstCell.appendChild(tag);
-              activeTag = tag;
-            }
+      requestAnimationFrame(function() {
+        var targetId = link.getAttribute('href').slice(1);
+        var targetRow = document.getElementById(targetId);
+        if (targetRow) {
+          var firstCell = targetRow.querySelector('td');
+          if (firstCell) {
+            var tag = document.createElement('button');
+            tag.className = 'back-tag';
+            tag.textContent = '← Back to Recipe';
+            tag.addEventListener('click', function(ev) {
+              ev.preventDefault();
+              sourceLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              tag.remove();
+              activeTag = null;
+              sourceLink = null;
+            });
+            firstCell.appendChild(tag);
+            activeTag = tag;
           }
-        });
-      }
+        }
+      });
     }
   });
 })();
