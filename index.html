@@ -728,5 +728,63 @@
 
 <footer>Made with <span>♥</span> and Vyvanse · Happy cooking, Asheley 🌿</footer>
 
+<!-- Back-to-recipe floating button (progressive enhancement) -->
+<style>
+  .back-to-recipe {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+    display: none; align-items: center; gap: 0.4rem;
+    padding: 0.7rem 1.1rem; border: none; border-radius: 100px;
+    background: var(--olive); color: white; font-family: 'Manrope', sans-serif;
+    font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(44,36,24,0.2);
+    transition: opacity 0.2s, transform 0.2s;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+    min-height: 44px;
+  }
+  .back-to-recipe:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(44,36,24,0.25); }
+  .back-to-recipe.visible { display: inline-flex; }
+</style>
+
+<button class="back-to-recipe" id="backBtn">↑ Back to recipe</button>
+
+<script>
+(function() {
+  var btn = document.getElementById('backBtn');
+  var source = null;
+
+  // Listen for clicks on ingredient links (those pointing to #sub-)
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href^="#sub-"]');
+    if (link) {
+      // Find the parent recipe wrapper
+      var recipe = link.closest('.recipe-wrapper');
+      if (recipe) {
+        source = recipe;
+        btn.classList.add('visible');
+      }
+    }
+  });
+
+  btn.addEventListener('click', function() {
+    if (source) {
+      source.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      btn.classList.remove('visible');
+      source = null;
+    }
+  });
+
+  // Hide button when user scrolls back to recipes area
+  var recipesSection = document.getElementById('recipes');
+  if (recipesSection) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && source) {
+        // User scrolled back manually, hide button
+      }
+    }, { threshold: 0.1 });
+    observer.observe(recipesSection);
+  }
+})();
+</script>
+
 </body>
 </html>
