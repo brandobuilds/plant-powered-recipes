@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Plant Powered Recipes</title>
+
+<!-- Open Graph — iMessage / social preview -->
+<meta property="og:title" content="Plant Powered Recipes 🌱">
+<meta property="og:description" content="10 Easy & Delicious High-Protein Vegan Recipes">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://em-content.zobj.net/source/apple/391/seedling_1f331.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Plant Powered Recipes 🌱">
+<meta name="twitter:description" content="10 Easy & Delicious High-Protein Vegan Recipes">
+<meta name="description" content="10 Easy & Delicious High-Protein Vegan Recipes. Only 28 ingredients, beginner-friendly, high protein.">
+<meta name="theme-color" content="#3d5a1e">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #3d5a1e;
+    --olive-mid: #5a7f30;
+    --sage: #8aab6e;
+    --sage-light: #b5d1a0;
+    --cream: #f8f5ed;
+    --warm: #fdfbf6;
+    --sand: #ede8da;
+    --bark: #2c2418;
+    --bark-mid: #5a4d3c;
+    --accent: #bf7528;
+    --accent-soft: #f4dfc0;
+    --gray: #8a8578;
+    --gray-light: #c8c3b8;
+    --red-soft: #c4564a;
+    --card: #fffefa;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow-sm: 0 1px 3px rgba(44,36,24,0.06);
+    --shadow-md: 0 4px 20px rgba(44,36,24,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══════════ STICKY NAV ═══════════ */
+  .page-nav {
+    display: flex; justify-content: center; gap: 0.4rem;
+    padding: 0.8rem 1.5rem;
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,245,237,0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .page-nav a {
+    border: 1.5px solid var(--sand); background: var(--card);
+    border-radius: 100px; padding: 0.5rem 1.1rem;
+    font-family: 'Manrope', sans-serif; font-size: 0.82rem; font-weight: 600;
+    color: var(--bark-mid); text-decoration: none;
+    transition: all 0.15s; min-height: 44px;
+    display: inline-flex; align-items: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+  }
+  .page-nav a:hover, .page-nav a:active { border-color: var(--olive); color: var(--olive); background: rgba(138,171,110,0.08); }
+
+  /* ═══════════ HERO + ABOUT ═══════════ */
+  .hero {
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    padding: 3rem 1.5rem 1.5rem;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(138,171,110,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(191,117,40,0.06) 0%, transparent 60%),
+      var(--cream);
+  }
+  .hero-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+    font-size: 1.8rem; margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(138,171,110,0.3);
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700; color: var(--olive); line-height: 0.95;
+    letter-spacing: -0.02em; margin-bottom: 0.8rem;
+  }
+  .hero-rule { width: 48px; height: 3px; background: var(--accent); border: none; border-radius: 2px; margin: 0 auto 1rem; }
+  .hero-sub { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--accent); margin-bottom: 0.5rem; }
+  .hero-meta { font-size: 0.82rem; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+  .hero-dedication { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 1.05rem; color: var(--sage); margin-top: 2rem; }
+
+  .about-section { max-width: 760px; margin: 0 auto; padding: 1rem 1.5rem 2.5rem; text-align: center; }
+  .about-section h2 { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 500; color: var(--olive); margin-bottom: 0.6rem; }
+  .about-section > p { font-size: 0.95rem; line-height: 1.7; color: var(--bark-mid); max-width: 520px; margin: 0 auto 1.5rem; }
+  .intro-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+  .intro-card { background: var(--card); border: 1px solid var(--sand); border-radius: var(--radius-sm); padding: 1rem 0.5rem; text-align: center; }
+  .intro-card .ic-emoji { font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .intro-card .ic-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--olive-mid); line-height: 1.3; }
+
+  /* ═══════════ SECTION HEADERS ═══════════ */
+  .section-header {
+    max-width: 860px; margin: 0 auto;
+    padding: 3rem 1.5rem 1.5rem; text-align: center;
+    scroll-margin-top: 4rem;
+  }
+  .section-header h2 { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 500; color: var(--olive); margin-bottom: 0.4rem; }
+  .section-header p { font-size: 0.92rem; color: var(--bark-mid); line-height: 1.6; }
+
+  /* ═══════════ RECIPE CARDS (details/summary) ═══════════ */
+  .recipes-container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  .recipe-wrapper {
+    margin-bottom: 1rem;
+    background: var(--card);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    scroll-margin-top: 4rem;
+  }
+
+  details.recipe-details summary {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer; list-style: none;
+    font-family: 'Manrope', sans-serif;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+    transition: background 0.15s;
+    min-height: 56px;
+  }
+  details.recipe-details summary::-webkit-details-marker { display: none; }
+  details.recipe-details summary::marker { display: none; content: ''; }
+  details.recipe-details summary:hover { background: rgba(138,171,110,0.04); }
+
+  .summary-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 500;
+    width: 1.8rem; height: 1.8rem; display: flex; align-items: center; justify-content: center;
+    border-radius: 6px; background: var(--sand); color: var(--gray); flex-shrink: 0;
+  }
+  details[open] .summary-num { background: var(--olive); color: white; }
+
+  .summary-title {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 600;
+    color: var(--olive); flex: 1; line-height: 1.3;
+  }
+
+  .summary-protein {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600;
+    background: var(--olive); color: white; padding: 0.2rem 0.55rem;
+    border-radius: 100px; flex-shrink: 0; white-space: nowrap;
+  }
+
+  .summary-arrow {
+    font-size: 0.8rem; color: var(--gray); flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  details[open] .summary-arrow { transform: rotate(90deg); }
+
+  /* Inner card content */
+  .recipe-inner { border-top: 1px solid var(--sand); }
+
+  .card-desc-bar {
+    padding: 1.2rem 1.5rem;
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: 0.95rem; color: var(--gray); line-height: 1.6;
+  }
+
+  .meta-strip { display: flex; border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand); background: var(--warm); }
+  .meta-cell { flex: 1; padding: 0.75rem 0.8rem; text-align: center; border-right: 1px solid var(--sand); }
+  .meta-cell:last-child { border-right: none; }
+  .meta-label { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 0.15rem; }
+  .meta-value { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 500; color: var(--bark); }
+  .meta-note { font-size: 0.52rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.1rem; }
+
+  .tools-bar { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; padding: 0.7rem 1.5rem; background: var(--warm); border-bottom: 1px solid var(--sand); }
+  .tools-label { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); }
+  .tools-chip { background: var(--sand); border-radius: 100px; padding: 0.2rem 0.6rem; font-size: 0.72rem; font-weight: 500; color: var(--bark-mid); }
+
+  .hack-callout { margin: 1.2rem 1.5rem; display: flex; gap: 0.8rem; padding: 1rem 1.1rem; background: linear-gradient(135deg, #fef8f0, #fdf5e8); border-radius: var(--radius-sm); border: 1px solid var(--accent-soft); }
+  .hack-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+  .hack-content { min-width: 0; }
+  .hack-title { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.25rem; }
+  .hack-text { font-size: 0.85rem; color: var(--bark-mid); line-height: 1.6; }
+
+  .card-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .card-col { padding: 1.25rem 1.5rem 1.5rem; }
+  .card-col:first-child { border-right: 1px solid var(--sand); }
+  .col-header { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive-mid); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--sage-light); }
+
+  .ing-list { list-style: none; }
+  .ing-item { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.5rem 0; font-size: 0.9rem; color: var(--bark); line-height: 1.45; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .ing-item:last-child { border-bottom: none; }
+  .ing-dot { flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--sage); margin-top: 0.45rem; }
+
+  .ing-item a { color: var(--bark); text-decoration: none; border-bottom: 1px dashed var(--sage-light); transition: border-color 0.15s, color 0.15s; }
+  .ing-item a:hover, .ing-item a:active { color: var(--olive); border-bottom-color: var(--olive); }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 0.7rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .step-item:last-child { border-bottom: none; }
+  .step-badge { flex-shrink: 0; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--olive); color: white; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 0.1rem; }
+  .step-text { font-size: 0.9rem; line-height: 1.65; color: var(--bark); }
+
+  /* ═══════════ SUBSTITUTIONS ═══════════ */
+  .subs-container { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  .subs-category-title {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--gray);
+    padding: 0.8rem 0; margin-top: 1.2rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .subs-category-title:first-child { margin-top: 0; }
+
+  .sub-row {
+    display: grid; grid-template-columns: 170px 1fr;
+    gap: 1.2rem; padding: 0.9rem 0.4rem;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    scroll-margin-top: 5rem;
+  }
+  .sub-row:target { background: rgba(138,171,110,0.15); border-radius: 6px; padding-left: 0.6rem; padding-right: 0.6rem; }
+  .sub-name { font-weight: 700; font-size: 0.88rem; color: var(--olive); }
+  .sub-detail { font-size: 0.85rem; color: var(--bark); line-height: 1.5; }
+  .sub-swap { font-weight: 600; color: var(--bark); }
+  .sub-note { color: var(--gray); font-size: 0.8rem; margin-top: 0.15rem; }
+
+  .subs-callout {
+    margin-top: 2rem; padding: 1.1rem 1.3rem;
+    background: linear-gradient(135deg, #fef8f0, #fdf5e8);
+    border-radius: var(--radius-sm); border: 1px solid var(--accent-soft);
+  }
+  .subs-callout-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.4rem; }
+  .subs-callout p { font-size: 0.85rem; color: var(--bark-mid); line-height: 1.6; margin-bottom: 0.25rem; }
+
+  /* ═══════════ BACK-TO-TOP ═══════════ */
+  .back-link { display: inline-block; margin-top: 0.6rem; font-size: 0.78rem; color: var(--sage); text-decoration: none; }
+  .back-link:hover { color: var(--olive); }
+
+  /* ═══════════ FOOTER ═══════════ */
+  footer { text-align: center; padding: 3rem 1.5rem; font-size: 0.85rem; color: var(--gray); border-top: 1px solid var(--sand); }
+  footer span { color: var(--red-soft); }
+
+  /* ═══════════ RESPONSIVE ═══════════ */
+  @media (max-width: 700px) {
+    .card-body { grid-template-columns: 1fr; }
+    .card-col:first-child { border-right: none; border-bottom: 1px solid var(--sand); }
+    .sub-row { grid-template-columns: 1fr; gap: 0.2rem; }
+    .intro-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .page-nav { gap: 0.3rem; padding: 0.7rem 1rem; }
+    .page-nav a { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
+    .meta-strip { flex-wrap: wrap; }
+    .meta-cell { flex: 1 1 50%; padding: 0.7rem 0.5rem; border-bottom: 1px solid var(--sand); }
+    .meta-cell:nth-child(2) { border-right: none; }
+    .meta-cell:nth-last-child(-n+2) { border-bottom: none; }
+    details.recipe-details summary { padding: 0.9rem 1.1rem; }
+    .summary-title { font-size: 0.95rem; }
+    .card-desc-bar { padding: 1rem 1.1rem; }
+    .tools-bar { padding: 0.6rem 1.1rem; }
+    .hack-callout { margin: 1rem 1.1rem; flex-direction: column; gap: 0.5rem; }
+    .card-col { padding: 1.1rem; }
+    .ing-item { font-size: 0.93rem; padding: 0.55rem 0; }
+    .step-text { font-size: 0.93rem; }
+    .subs-container { padding: 0 1.1rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV — plain anchor links, zero JS -->
+<nav class="page-nav" id="top">
+  <a href="#about">About</a>
+  <a href="#recipes">Recipes</a>
+  <a href="#subs">Substitutions</a>
+</nav>
+
+<!-- ════════════════════════════════════
+     HERO + ABOUT
+     ════════════════════════════════════ -->
+<section class="hero" id="about">
+  <div class="hero-icon">🌱</div>
+  <h1>Plant<br>Powered</h1>
+  <hr class="hero-rule">
+  <p class="hero-sub">10 Easy &amp; Delicious High-Protein Vegan Recipes</p>
+  <p class="hero-meta">Beginner-friendly · Serves 3 · Only 28 ingredients</p>
+</section>
+
+<section class="about-section">
+  <h2>How to Use This Book</h2>
+  <p>Every recipe uses common grocery store ingredients, takes under 30 minutes, and is nearly impossible to mess up. If you can stir and set a timer, you can make everything in here.</p>
+  <div class="intro-grid">
+    <div class="intro-card"><div class="ic-emoji">🍳</div><div class="ic-label">No Fancy Gear</div></div>
+    <div class="intro-card"><div class="ic-emoji">🛒</div><div class="ic-label">28 Ingredients</div></div>
+    <div class="intro-card"><div class="ic-emoji">💪</div><div class="ic-label">High Protein</div></div>
+    <div class="intro-card"><div class="ic-emoji">🧪</div><div class="ic-label">Science Hacks</div></div>
+    <div class="intro-card"><div class="ic-emoji">🍲</div><div class="ic-label">One-Pot</div></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     RECIPES — using <details> for expand/collapse (no JS!)
+     ════════════════════════════════════ -->
+<div class="section-header" id="recipes">
+  <h2>The Recipes</h2>
+  <p>Tap any recipe to expand it. Tap an ingredient to see substitutions.</p>
+</div>
+
+<div class="recipes-container">
+
+  <!-- ── 1. Crispy Salt & Pepper Tofu ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary>
+        <span class="summary-num">1</span>
+        <span class="summary-title">Crispy Salt &amp; Pepper Tofu</span>
+        <span class="summary-protein">~20g</span>
+        <span class="summary-arrow">▸</span>
+      </summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">Shatteringly crispy tofu bites tossed with garlic, black pepper, and chili flakes. Addictive enough to eat straight from the pan.</div>
+        <div class="meta-strip">
+          <div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div>
+          <div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">10 min</div></div>
+          <div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~20g</div><div class="meta-note">per serving</div></div>
+          <div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div>
+        </div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">Large non-stick pan</span><span class="tools-chip">Mixing bowl</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Tearing tofu by hand creates irregular edges with more surface area = more crispy bits. Cornstarch coating crisps up in oil without deep-frying.</div></div></div>
+        <div class="card-body">
+          <div class="card-col">
+            <div class="col-header">Ingredients</div>
+            <ul class="ing-list">
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-tofu">1 block (350g) extra-firm tofu</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-cornstarch">3 tbsp cornstarch</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-olive-oil">2 tbsp olive oil</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">1 tsp garlic powder</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-black-pepper">1 tsp black pepper</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chili-flakes">½ tsp chili flakes</a></li>
+              <li class="ing-item"><span class="ing-dot"></span><a href="#sub-scallions">3 scallions, sliced</a></li>
+            </ul>
+          </div>
+          <div class="card-col">
+            <div class="col-header">Steps</div>
+            <ol class="step-list">
+              <li class="step-item"><span class="step-badge">1</span><span class="step-text">Drain the tofu and tear it into bite-sized chunks by hand (irregular edges = more crispy bits).</span></li>
+              <li class="step-item"><span class="step-badge">2</span><span class="step-text">Toss in a bowl with cornstarch, garlic powder, black pepper, and salt until evenly coated.</span></li>
+              <li class="step-item"><span class="step-badge">3</span><span class="step-text">Heat olive oil in a large non-stick pan over medium-high. Add tofu in a single layer — don't touch for 4 minutes.</span></li>
+              <li class="step-item"><span class="step-badge">4</span><span class="step-text">Flip and cook another 4 minutes until golden and crispy.</span></li>
+              <li class="step-item"><span class="step-badge">5</span><span class="step-text">Toss with chili flakes and scallions. Serve over rice or eat on its own.</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 2. Red Lentil Bolognese ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">2</span><span class="summary-title">Red Lentil Bolognese</span><span class="summary-protein">~22g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">A rich, savory pasta sauce where red lentils melt away into nothing — you'd never know it's vegan. One pot, no chopping.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">25 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~22g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">One large pot</span><span class="tools-chip">One pot for pasta</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Red lentils completely dissolve when simmered, becoming a thick, meaty sauce with zero effort. Soy sauce adds umami glutamates that trick your brain into tasting meat.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-red-lentils">1 cup (200g) red lentils, rinsed</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-diced-tomatoes">1 can (400g) diced tomatoes</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-soy-sauce">3 tbsp soy sauce</a></li>
+            <li class="ing-item"><span class="ing-dot"></span>2 cups water</li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">1 tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-maple-syrup">1 tsp maple syrup</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-spaghetti">300g spaghetti</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Add lentils, diced tomatoes, soy sauce, water, garlic powder, maple syrup, and salt to a large pot. Stir.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Bring to a boil, then reduce to a low simmer. Cook 20–25 minutes, stirring every few minutes, until lentils dissolve.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Cook spaghetti in a separate pot per package directions. Drain.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Taste sauce — add more salt or soy sauce if needed. Serve over pasta.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 3. Peanut Butter Ramen ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">3</span><span class="summary-title">Peanut Butter Ramen</span><span class="summary-protein">~24g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">A creamy, spicy peanut broth with noodles and crispy tofu. Restaurant-level ramen from pantry staples.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">15 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~24g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">Large pot</span><span class="tools-chip">Small pan</span><span class="tools-chip">Bowl</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Peanut butter emulsifies directly into hot water to create a rich, creamy broth instantly — no slow-simmered stock needed.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-spaghetti">200g spaghetti, broken in half</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-tofu">1 block (350g) extra-firm tofu, torn</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-peanut-butter">3 tbsp peanut butter</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-soy-sauce">3 tbsp soy sauce</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chili-flakes">½ tsp chili flakes</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">1 tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span>4 cups water</li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-olive-oil">1 tbsp olive oil</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-frozen-spinach">2 handfuls frozen spinach</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-scallions">2 scallions, sliced</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Whisk peanut butter, soy sauce, chili flakes, and garlic powder in a bowl. Set aside.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Heat olive oil in a small pan. Add torn tofu, cook 3–4 min per side until browned. Set aside.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Boil 4 cups water in a large pot. Add broken spaghetti, cook 8 minutes. Don't drain.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Stir peanut butter mixture into the pot. Add frozen spinach, stir until heated (2 min).</span></li>
+            <li class="step-item"><span class="step-badge">5</span><span class="step-text">Divide into bowls. Top with crispy tofu and scallions.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 4. Black Bean & Walnut Burritos ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">4</span><span class="summary-title">Black Bean &amp; Walnut "Meat" Burritos</span><span class="summary-protein">~21g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">Smoky, savory bean-walnut filling wrapped in warm tortillas. Nobody will ask where the meat is.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">10 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~21g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">Large pan</span><span class="tools-chip">Fork</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Mashed black beans + chopped walnuts = a ground-meat texture and color. Soy sauce and smoked paprika create deep, savory flavor that mimics taco meat.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-black-beans">1 can (400g) black beans, drained</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-walnuts">½ cup (50g) walnuts, chopped</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-soy-sauce">2 tbsp soy sauce</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-smoked-paprika">1 tsp smoked paprika</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-cumin">1 tsp cumin</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">½ tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-flour-tortillas">3 flour tortillas</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salsa">Salsa</a> + <a href="#sub-avocado">avocado</a> for topping</li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Add black beans to a pan over medium heat. Mash roughly with a fork — leave some whole.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Stir in walnuts, soy sauce, smoked paprika, cumin, garlic powder. Cook 5–7 min until thick.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Warm tortillas (microwave 15 sec or dry pan).</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Fill tortillas, add salsa and avocado, wrap, eat.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 5. 15-Minute Coconut Dal ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">5</span><span class="summary-title">15-Minute Coconut Dal</span><span class="summary-protein">~19g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">Silky, warming, and aromatic — this one-pot dal is the ultimate comfort food with almost zero active cooking.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">2 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">15 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~19g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">One pot</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Red lentils need no soaking and collapse into a creamy porridge in 15 minutes. Coconut milk is a built-in thickener — no cream, no roux, no effort.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-red-lentils">1 cup (200g) red lentils, rinsed</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-coconut-milk">1 can (400ml) coconut milk</a></li>
+            <li class="ing-item"><span class="ing-dot"></span>1½ cups water</li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-turmeric">1 tsp turmeric</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-cumin">1 tsp cumin</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">1 tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-olive-oil">1 tbsp olive oil</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-lime">Juice of ½ lime</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-flour-tortillas">Tortillas for serving</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Heat olive oil in a pot over medium heat. Add garlic powder, stir 15 seconds.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Add lentils, coconut milk, water, turmeric, cumin, salt. Stir once.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Bring to a boil, reduce to low. Simmer 15 minutes until lentils are soft and broken down.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Stir in lime juice. Serve with warmed tortillas.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 6. Crispy Smashed Chickpeas ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">6</span><span class="summary-title">Crispy Smashed Chickpeas on Tortillas</span><span class="summary-protein">~17g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">Crunchy, golden chickpeas piled on crispy tortillas with lime and chili. Five ingredients, zero skill, maximum satisfaction.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">2 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">8 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~17g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">Non-stick pan</span><span class="tools-chip">Fork</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Pressing chickpeas flat maximizes surface area (smash burger principle). More surface = more golden, crispy edges with creamy centers.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chickpeas">2 cans (400g each) chickpeas, drained</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-olive-oil">3 tbsp olive oil</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">½ tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chili-flakes">½ tsp chili flakes</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-lime">Juice of ½ lime</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-flour-tortillas">3 flour tortillas</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Press each chickpea flat with the back of a fork.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Heat olive oil over medium-high. Add chickpeas in a single layer. Don't touch for 3–4 min until golden.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Flip, cook 2–3 more min. Add salt, garlic powder, chili flakes. Squeeze lime over top.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Crisp tortillas in the same pan 30 sec per side. Pile chickpeas on top.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 7. West African Peanut Stew ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">7</span><span class="summary-title">West African Peanut Stew</span><span class="summary-protein">~22g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">A hearty, warmly spiced stew with chickpeas and sweet potato in a creamy peanut-tomato broth. Dump it all in one pot.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">25 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~22g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">One large pot</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Peanut butter dissolves into hot liquid and emulsifies into a rich, thick sauce on its own — no roux or thickener needed.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chickpeas">1 can (400g) chickpeas, drained</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-diced-tomatoes">1 can (400g) diced tomatoes</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-peanut-butter">¼ cup (65g) peanut butter</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-sweet-potato">1 sweet potato, cubed</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-frozen-spinach">2 cups frozen spinach</a></li>
+            <li class="ing-item"><span class="ing-dot"></span>1½ cups water</li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-cumin">1 tsp cumin</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-smoked-paprika">1 tsp smoked paprika</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chili-flakes">½ tsp chili flakes (optional)</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Add everything to a large pot. Stir well until peanut butter dissolves.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Bring to a boil, reduce heat. Simmer 20–25 min until sweet potato is fork-tender.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Taste, add more salt if needed. Serve with tortillas or rice.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 8. Kenji's Spinach & Chickpea Stew ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">8</span><span class="summary-title">Kenji's Spinach &amp; Chickpea Stew</span><span class="summary-protein">~18g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">A Spanish-inspired stew that simmers down into something deeply rich and savory. Low effort, high reward — just let the pot do the work.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">10 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">40 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~18g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">Blender</span><span class="tools-chip">One large pot</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Blending half the tomatoes creates a smooth base while the crushed chunks give texture. Simmering uncovered concentrates flavors — and the lime + finishing olive oil at the end is a restaurant trick that lifts everything.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-olive-oil">3 tbsp olive oil (+ 1 tbsp for finishing)</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">1½ tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-smoked-paprika">1 tsp smoked paprika</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-diced-tomatoes">1 can (400g) diced tomatoes</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chickpeas">2 cans (400g each) chickpeas — do NOT drain</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-frozen-spinach">3 cups frozen spinach</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-lime">Juice of ½ lime (to finish)</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-flour-tortillas">Tortillas for serving</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Blend half the can of diced tomatoes (with juice) until smooth. Leave the other half chunky.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Heat 3 tbsp olive oil in a pot over medium. Add garlic powder and smoked paprika — stir 30 seconds until fragrant.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Pour in the blended tomato mixture. Bring to a gentle simmer.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Add the remaining chunky tomatoes, frozen spinach, and both cans of chickpeas with all their liquid. Add salt. Stir.</span></li>
+            <li class="step-item"><span class="step-badge">5</span><span class="step-text">Simmer uncovered 30–40 minutes, stirring occasionally, until thick and stew-like.</span></li>
+            <li class="step-item"><span class="step-badge">6</span><span class="step-text">Finish with lime juice and 1 tbsp olive oil. Stir, taste, adjust salt. Serve with warmed tortillas.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 9. Smoky Black Bean Soup ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">9</span><span class="summary-title">Smoky Black Bean Soup</span><span class="summary-protein">~19g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">A thick, smoky, deeply satisfying soup from two cans of beans and a few spices. Top-tier lazy cooking.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">2 min</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">18 min</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~19g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">One pot</span><span class="tools-chip">Fork or masher</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Don't drain the cans — the starchy bean liquid is a natural thickener. Mashing half the beans gives creamy body with whole bean texture.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-black-beans">2 cans (400g each) black beans — do NOT drain</a></li>
+            <li class="ing-item"><span class="ing-dot"></span>1 cup water</li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-cumin">1 tsp cumin</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-smoked-paprika">1 tsp smoked paprika</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-garlic-powder">½ tsp garlic powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">½ tsp salt</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-lime">Juice of 1 lime</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-avocado">Avocado</a> + <a href="#sub-chili-flakes">chili flakes</a> for topping</li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Add beans (with all liquid), water, cumin, smoked paprika, garlic powder, salt to a pot. Stir.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Boil, then simmer 15 minutes.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Mash about half the beans in the pot with a fork.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Stir in lime juice. Top with avocado and chili flakes.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── 10. Chocolate Peanut Butter Mousse ── -->
+  <div class="recipe-wrapper">
+    <details class="recipe-details">
+      <summary><span class="summary-num">10</span><span class="summary-title">Chocolate Peanut Butter Mousse</span><span class="summary-protein">~14g</span><span class="summary-arrow">▸</span></summary>
+      <div class="recipe-inner">
+        <div class="card-desc-bar">A decadent, silky mousse that's secretly packed with protein. Dump everything in a blender, chill, and impress.</div>
+        <div class="meta-strip"><div class="meta-cell"><div class="meta-label">Prep</div><div class="meta-value">5 min + chill</div></div><div class="meta-cell"><div class="meta-label">Cook</div><div class="meta-value">None</div></div><div class="meta-cell"><div class="meta-label">Protein</div><div class="meta-value">~14g</div><div class="meta-note">per serving</div></div><div class="meta-cell"><div class="meta-label">Serves</div><div class="meta-value">3</div></div></div>
+        <div class="tools-bar"><span class="tools-label">Tools:</span><span class="tools-chip">Blender or food processor</span></div>
+        <div class="hack-callout"><div class="hack-icon">🧪</div><div class="hack-content"><div class="hack-title">Why it works</div><div class="hack-text">Canned chickpeas blend smooth because their starches emulsify like cream. You'd never know they're in there — all you taste is chocolate and peanut butter.</div></div></div>
+        <div class="card-body">
+          <div class="card-col"><div class="col-header">Ingredients</div><ul class="ing-list">
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-chickpeas">1 can (400g) chickpeas, drained</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-peanut-butter">3 tbsp peanut butter</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-cocoa-powder">3 tbsp cocoa powder</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-maple-syrup">3 tbsp maple syrup</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-coconut-milk">¼ cup coconut milk</a></li>
+            <li class="ing-item"><span class="ing-dot"></span><a href="#sub-salt">Pinch of salt</a></li>
+          </ul></div>
+          <div class="card-col"><div class="col-header">Steps</div><ol class="step-list">
+            <li class="step-item"><span class="step-badge">1</span><span class="step-text">Add chickpeas, peanut butter, cocoa, maple syrup, coconut milk, and salt to a blender.</span></li>
+            <li class="step-item"><span class="step-badge">2</span><span class="step-text">Blend on high 2–3 minutes until smooth. Scrape sides halfway.</span></li>
+            <li class="step-item"><span class="step-badge">3</span><span class="step-text">Taste — add more syrup or cocoa as you like.</span></li>
+            <li class="step-item"><span class="step-badge">4</span><span class="step-text">Divide into 3 cups. Chill at least 30 minutes. Top with whatever you like.</span></li>
+          </ol></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════
+     SUBSTITUTIONS
+     ════════════════════════════════════ -->
+<div class="section-header" id="subs">
+  <h2>Substitutions Guide</h2>
+  <p>Every ingredient can be swapped. Tap any ingredient in a recipe to jump here.<br><a class="back-link" href="#recipes">↑ Back to recipes</a></p>
+</div>
+
+<div class="subs-container">
+  <div class="subs-category-title">🗄️ Pantry</div>
+  <div class="sub-row" id="sub-olive-oil"><div class="sub-name">Olive Oil</div><div class="sub-detail"><div class="sub-swap">→ Any cooking oil (canola, avocado, sunflower)</div><div class="sub-note">Coconut oil works too but adds slight sweetness</div></div></div>
+  <div class="sub-row" id="sub-soy-sauce"><div class="sub-name">Soy Sauce</div><div class="sub-detail"><div class="sub-swap">→ Tamari (gluten-free) or coconut aminos (lower sodium)</div><div class="sub-note">Same amount, 1:1 swap</div></div></div>
+  <div class="sub-row" id="sub-maple-syrup"><div class="sub-name">Maple Syrup</div><div class="sub-detail"><div class="sub-swap">→ Agave nectar or brown sugar (1 tsp per 1 tbsp syrup)</div><div class="sub-note">Agave is the closest 1:1 swap</div></div></div>
+  <div class="sub-row" id="sub-peanut-butter"><div class="sub-name">Peanut Butter</div><div class="sub-detail"><div class="sub-swap">→ Any nut/seed butter — almond, cashew, sunflower seed butter</div><div class="sub-note">Sunflower seed butter for nut allergies</div></div></div>
+  <div class="sub-row" id="sub-garlic-powder"><div class="sub-name">Garlic Powder</div><div class="sub-detail"><div class="sub-swap">→ 1 fresh clove = ½ tsp garlic powder</div><div class="sub-note">Fresh is stronger, use less</div></div></div>
+  <div class="sub-row" id="sub-cumin"><div class="sub-name">Cumin</div><div class="sub-detail"><div class="sub-swap">→ Coriander (milder, slightly citrusy)</div><div class="sub-note">Not identical but works in every recipe here</div></div></div>
+  <div class="sub-row" id="sub-turmeric"><div class="sub-name">Turmeric</div><div class="sub-detail"><div class="sub-swap">→ Mild curry powder, or just skip it</div><div class="sub-note">Mainly adds color — cumin carries the flavor</div></div></div>
+  <div class="sub-row" id="sub-smoked-paprika"><div class="sub-name">Smoked Paprika</div><div class="sub-detail"><div class="sub-swap">→ Regular paprika + tiny drop of liquid smoke, or chipotle powder</div><div class="sub-note">Regular paprika alone is fine, you just lose the smokiness</div></div></div>
+  <div class="sub-row" id="sub-chili-flakes"><div class="sub-name">Chili Flakes</div><div class="sub-detail"><div class="sub-swap">→ Any hot sauce, cayenne, sriracha, or skip for no heat</div><div class="sub-note">All heat sources are interchangeable</div></div></div>
+  <div class="sub-row" id="sub-black-pepper"><div class="sub-name">Black Pepper</div><div class="sub-detail"><div class="sub-swap">→ White pepper (spicier, less floral)</div><div class="sub-note">Or just use more chili flakes</div></div></div>
+  <div class="sub-row" id="sub-salt"><div class="sub-name">Salt</div><div class="sub-detail"><div class="sub-swap">→ No real substitute, but soy sauce adds salt too</div><div class="sub-note">If low-sodium, lean on soy sauce, lime, and spices</div></div></div>
+  <div class="sub-row" id="sub-diced-tomatoes"><div class="sub-name">Diced Tomatoes</div><div class="sub-detail"><div class="sub-swap">→ Fresh tomatoes (2 medium = 1 can) or passata</div><div class="sub-note">Passata is smoother but works everywhere</div></div></div>
+  <div class="sub-row" id="sub-coconut-milk"><div class="sub-name">Coconut Milk</div><div class="sub-detail"><div class="sub-swap">→ Any full-fat plant cream (oat, soy, cashew)</div><div class="sub-note">Light coconut milk works but will be thinner</div></div></div>
+  <div class="sub-row" id="sub-black-beans"><div class="sub-name">Black Beans</div><div class="sub-detail"><div class="sub-swap">→ Any canned bean — pinto, kidney, or lentils</div><div class="sub-note">Pinto is the closest swap for burritos and soup</div></div></div>
+  <div class="sub-row" id="sub-chickpeas"><div class="sub-name">Chickpeas</div><div class="sub-detail"><div class="sub-swap">→ White beans (cannellini, navy) or lentils</div><div class="sub-note">For the mousse, white beans blend just as smooth</div></div></div>
+  <div class="sub-row" id="sub-red-lentils"><div class="sub-name">Red Lentils</div><div class="sub-detail"><div class="sub-swap">→ Yellow lentils (identical) or split peas (take longer)</div><div class="sub-note">Split peas need 30+ min vs 15 for lentils</div></div></div>
+  <div class="sub-row" id="sub-spaghetti"><div class="sub-name">Spaghetti</div><div class="sub-detail"><div class="sub-swap">→ Any pasta, rice noodles, or serve over rice</div><div class="sub-note">Both recipes work with anything starchy</div></div></div>
+  <div class="sub-row" id="sub-flour-tortillas"><div class="sub-name">Flour Tortillas</div><div class="sub-detail"><div class="sub-swap">→ Corn tortillas, naan, or pita</div><div class="sub-note">Naan is great for the dal and curry too</div></div></div>
+  <div class="sub-row" id="sub-cornstarch"><div class="sub-name">Cornstarch</div><div class="sub-detail"><div class="sub-swap">→ Tapioca starch or all-purpose flour (use 50% more)</div><div class="sub-note">Flour crisps slightly less but works</div></div></div>
+  <div class="sub-row" id="sub-walnuts"><div class="sub-name">Walnuts</div><div class="sub-detail"><div class="sub-swap">→ Pecans, sunflower seeds, or finely chopped mushrooms</div><div class="sub-note">Sunflower seeds for nut allergies; mushrooms for umami</div></div></div>
+  <div class="sub-row" id="sub-cocoa-powder"><div class="sub-name">Cocoa Powder</div><div class="sub-detail"><div class="sub-swap">→ Cacao powder (less processed) or carob</div><div class="sub-note">Cacao is a 1:1 swap</div></div></div>
+
+  <div class="subs-category-title">🧊 Fridge</div>
+  <div class="sub-row" id="sub-tofu"><div class="sub-name">Extra-Firm Tofu</div><div class="sub-detail"><div class="sub-swap">→ Tempeh (nuttier, firmer) or smashed chickpeas</div><div class="sub-note">Tempeh crisps up even better but has a stronger flavor</div></div></div>
+  <div class="sub-row" id="sub-scallions"><div class="sub-name">Scallions</div><div class="sub-detail"><div class="sub-swap">→ Chives, diced onion, or skip</div><div class="sub-note">Raw red onion works — rinse to soften the bite</div></div></div>
+  <div class="sub-row" id="sub-lime"><div class="sub-name">Lime</div><div class="sub-detail"><div class="sub-swap">→ Lemon, or vinegar (half the amount)</div><div class="sub-note">Any acid brightens a dish the same way</div></div></div>
+  <div class="sub-row" id="sub-avocado"><div class="sub-name">Avocado</div><div class="sub-detail"><div class="sub-swap">→ Hummus, tahini drizzle, or coconut yogurt</div><div class="sub-note">All add "creamy cool" on top of warm dishes</div></div></div>
+  <div class="sub-row" id="sub-salsa"><div class="sub-name">Salsa</div><div class="sub-detail"><div class="sub-swap">→ Diced tomato + lime juice + pinch of salt</div><div class="sub-note">That's basically what salsa is</div></div></div>
+
+  <div class="subs-category-title">❄️ Freezer</div>
+  <div class="sub-row" id="sub-frozen-spinach"><div class="sub-name">Frozen Spinach</div><div class="sub-detail"><div class="sub-swap">→ Any frozen greens or fresh spinach (3× the volume)</div><div class="sub-note">Fresh wilts dramatically — use way more than you think</div></div></div>
+  <div class="sub-row" id="sub-sweet-potato"><div class="sub-name">Sweet Potato</div><div class="sub-detail"><div class="sub-swap">→ Butternut squash, regular potato, or carrots</div><div class="sub-note">All cube and simmer the same way</div></div></div>
+
+  <div class="subs-callout">
+    <div class="subs-callout-title">💡 Quick allergy swaps</div>
+    <p><strong>Nut-free:</strong> Peanut butter → sunflower seed butter, walnuts → sunflower seeds (2 swaps)</p>
+    <p><strong>Gluten-free:</strong> Soy sauce → tamari, flour tortillas → corn tortillas, spaghetti → rice noodles (3 swaps)</p>
+    <p><strong>Soy-free:</strong> Soy sauce → coconut aminos, tofu → smashed chickpeas (2 swaps)</p>
+  </div>
+
+  <p style="text-align:center; margin-top:2rem;"><a class="back-link" href="#top">↑ Back to top</a></p>
+</div>
+
+<footer>Made with <span>♥</span> · Happy cooking 🌿</footer>
+
+</body>
+</html>
