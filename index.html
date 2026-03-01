@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Plant Powered Recipes</title>
+<title>Plant Powered Cookbook</title>
 
 <!-- Open Graph — iMessage / social preview -->
-<meta property="og:title" content="Plant Powered Recipes 🌱">
+<meta property="og:title" content="Plant Powered Cookbook 🌱">
 <meta property="og:description" content="10 Easy & Delicious High-Protein Vegan Recipes">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://em-content.zobj.net/source/apple/391/seedling_1f331.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plant Powered Recipes 🌱">
+<meta property="og:url" content="https://ashe-cookbook.vercel.app">
+<meta property="og:image" content="https://ashe-cookbook.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plant Powered Cookbook 🌱">
 <meta name="twitter:description" content="10 Easy & Delicious High-Protein Vegan Recipes">
-<meta name="description" content="10 Easy & Delicious High-Protein Vegan Recipes. Only 28 ingredients, beginner-friendly, high protein.">
+<meta name="twitter:image" content="https://ashe-cookbook.vercel.app/og-image.png">
+<meta name="description" content="10 Easy & Delicious High-Protein Vegan Recipes. Simple ingredients, big flavor, ready in 30 minutes.">
 <meta name="theme-color" content="#3d5a1e">
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -282,9 +286,10 @@
 </style>
 </head>
 <body>
+<div id="top" style="position:absolute;top:0;"></div>
 
 <!-- STICKY NAV — plain anchor links, zero JS -->
-<nav class="page-nav" id="top">
+<nav class="page-nav">
   <a href="#top">About</a>
   <a href="#recipes">Recipes</a>
   <a href="#ingredients">Ingredients</a>
@@ -662,7 +667,7 @@
      ════════════════════════════════════ -->
 <div class="section-header" id="ingredients">
   <h2>The Ingredients</h2>
-  <p>Everything you need, organized by where it lives. Tap any ingredient in a recipe to jump here.<br><a class="back-link" href="#recipes">↑ Back to recipes</a></p>
+  <p>Everything you need, organized by where it lives. Tap any ingredient in a recipe to jump here.</p>
 </div>
 
 <div class="ing-container">
@@ -728,61 +733,64 @@
 
 <footer>Made with <span>♥</span> and Vyvanse · Happy cooking, Asheley 🌿</footer>
 
-<!-- Back-to-recipe floating button (progressive enhancement) -->
 <style>
-  .back-to-recipe {
-    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
-    display: none; align-items: center; gap: 0.4rem;
-    padding: 0.7rem 1.1rem; border: none; border-radius: 100px;
-    background: var(--olive); color: white; font-family: 'Manrope', sans-serif;
-    font-size: 0.82rem; font-weight: 600; cursor: pointer;
-    box-shadow: 0 4px 16px rgba(44,36,24,0.2);
-    transition: opacity 0.2s, transform 0.2s;
+  .back-tag {
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    margin-left: 0.5rem; padding: 0.2rem 0.6rem;
+    background: var(--olive); color: white; border: none; border-radius: 100px;
+    font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 600;
+    cursor: pointer; white-space: nowrap; vertical-align: middle;
     -webkit-tap-highlight-color: rgba(0,0,0,0.05);
-    min-height: 44px;
+    min-height: 28px;
+    animation: fadeIn 0.15s ease;
   }
-  .back-to-recipe:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(44,36,24,0.25); }
-  .back-to-recipe.visible { display: inline-flex; }
+  .back-tag:hover { background: var(--olive-mid); }
+  @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 </style>
-
-<button class="back-to-recipe" id="backBtn">↑ Back to recipe</button>
 
 <script>
 (function() {
-  var btn = document.getElementById('backBtn');
   var source = null;
+  var sourceName = '';
+  var activeTag = null;
 
-  // Listen for clicks on ingredient links (those pointing to #sub-)
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href^="#sub-"]');
     if (link) {
-      // Find the parent recipe wrapper
       var recipe = link.closest('.recipe-wrapper');
       if (recipe) {
         source = recipe;
-        btn.classList.add('visible');
+        var title = recipe.querySelector('.summary-title');
+        sourceName = title ? title.textContent : 'recipe';
+
+        // Remove any existing back tag
+        if (activeTag) activeTag.remove();
+
+        // Wait for browser to scroll to target, then inject tag
+        requestAnimationFrame(function() {
+          var targetId = link.getAttribute('href').slice(1);
+          var targetRow = document.getElementById(targetId);
+          if (targetRow) {
+            var firstCell = targetRow.querySelector('td');
+            if (firstCell) {
+              var tag = document.createElement('button');
+              tag.className = 'back-tag';
+              tag.innerHTML = '← ' + sourceName;
+              tag.addEventListener('click', function(ev) {
+                ev.preventDefault();
+                source.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                tag.remove();
+                activeTag = null;
+                source = null;
+              });
+              firstCell.appendChild(tag);
+              activeTag = tag;
+            }
+          }
+        });
       }
     }
   });
-
-  btn.addEventListener('click', function() {
-    if (source) {
-      source.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      btn.classList.remove('visible');
-      source = null;
-    }
-  });
-
-  // Hide button when user scrolls back to recipes area
-  var recipesSection = document.getElementById('recipes');
-  if (recipesSection) {
-    var observer = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting && source) {
-        // User scrolled back manually, hide button
-      }
-    }, { threshold: 0.1 });
-    observer.observe(recipesSection);
-  }
 })();
 </script>
 
